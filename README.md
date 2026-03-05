@@ -110,3 +110,35 @@ team-skills/
 
 - `git`, `gh` (GitHub CLI)
 - `stow` (`brew install stow` / `apt install stow`)
+
+---
+
+## Using with amarcord
+
+[amarcord](https://github.com/rhighs/amarcord) is a session knowledge extraction tool — it pulls reusable skills out of AI coding sessions and saves them locally.
+
+chiacchiere pairs naturally with it:
+
+```
+amarcord extracts skill → chiacchiere syncs to team → everyone pulls
+```
+
+**Setup:**
+
+```bash
+# install amarcord
+curl -fsSL https://raw.githubusercontent.com/rhighs/amarcord/main/install.sh | bash
+
+# install chiacchiere
+curl -fsSL https://raw.githubusercontent.com/rhighs/chiacchiere/main/install.sh | bash -s -- https://github.com/YOUR-ORG/team-skills
+```
+
+**Workflow:**
+
+1. Run `/amarcord` at the end of a coding session — it extracts a skill and saves it to `~/.config/opencode/commands/`
+2. Run `chiacchiere sync <that-file>` to open a PR to the team repo
+3. Teammates run `chiacchiere pull` to get it
+
+Or just tell the AI: *"sync this skill to the team"* — it'll handle both steps.
+
+amarcord and chiacchiere are independent tools. You don't need one to use the other.
