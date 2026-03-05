@@ -5,21 +5,18 @@
 ---
 
 Your agent figures something out. Normally that knowledge dies when the session ends.
-**chiacchiere** syncs it to a shared team repo so everyone's agent benefits.
-
-Works alongside [amarcord](https://github.com/rhighs/amarcord). amarcord extracts —
-chiacchiere distributes.
+**chiacchiere** syncs any skill file to a shared team repo so everyone's agent benefits.
 
 ```
-amarcord extracts skill → chiacchiere opens PR → team reviews → everyone pulls
+skill file → chiacchiere opens PR → team reviews → everyone pulls
 ```
 
 ---
 
 ## How It Works
 
-1. **amarcord** saves a skill locally (opencode or Claude Code)
-2. **chiacchiere** copies it to the shared team repo, opens a PR
+1. You have a skill file — from [amarcord](https://github.com/rhighs/amarcord), written by hand, or generated any other way
+2. **chiacchiere** copies it to the shared team repo and opens a PR
 3. Team reviews and merges
 4. Everyone pulls — both opencode and Claude Code versions are ready
 
@@ -52,16 +49,26 @@ This:
 - Symlinks all skills into place via `stow` (opencode + Claude Code)
 - Writes config to `~/.config/chiacchiere/team.conf`
 
-### 3. Use it
-
-After running `/amarcord` and a skill is saved locally:
+### 3. Sync a skill
 
 ```bash
-chiacchiere sync ~/.config/opencode/commands/my-project:some-fix.md
+chiacchiere sync path/to/my-skill.md
 ```
 
-Or let amarcord call it automatically — if `~/.config/chiacchiere/team.conf` exists,
-amarcord calls chiacchiere after every extraction.
+That's it. Works with any `.md` skill file — no specific tool required.
+
+---
+
+## Trigger via AI
+
+You can also let your agent sync for you. Just say:
+
+> "sync this skill" / "share this to the team" / `/chiacchiere sync`
+
+The AI will call `chiacchiere sync <file>` directly.
+
+If you use [amarcord](https://github.com/rhighs/amarcord) for extraction, it can call
+chiacchiere automatically after every session — but this is optional.
 
 ---
 
@@ -103,16 +110,3 @@ team-skills/
 
 - `git`, `gh` (GitHub CLI)
 - `stow` (`brew install stow` / `apt install stow`)
-- [amarcord](https://github.com/rhighs/amarcord) (for extraction)
-
-## Tests
-
-```bash
-bash test/run_tests.sh
-```
-
----
-
-## Credit
-
-Built on top of [amarcord](https://github.com/rhighs/amarcord).

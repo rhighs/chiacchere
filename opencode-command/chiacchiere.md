@@ -1,25 +1,28 @@
 ---
-description: Sync a locally extracted skill to the shared team repo and open a PR. Run after /amarcord extracts a skill, when you want to share it with the team. Also use /chiacchiere pull to get the latest skills from teammates.
+description: Sync any skill file to the shared team repo and open a PR. Use when you want to share a skill with the team — from amarcord, hand-written, or any source. Also use /chiacchiere pull to get the latest skills from teammates.
 ---
 
 # /chiacchiere
 
-Distributes skills extracted by amarcord to the shared team repo.
+Distributes skill files to the shared team repo.
 One person learns, everyone benefits.
 
 ## Usage
 
 ```
-/chiacchiere sync    # sync the skill just extracted to the team repo
-/chiacchiere pull    # pull latest skills from the team
-/chiacchiere status  # check if team sync is configured
+/chiacchiere sync [file]   # sync a skill file to the team repo
+/chiacchiere pull          # pull latest skills from the team
+/chiacchiere status        # check if team sync is configured
 ```
 
 ---
 
 ## sync
 
-Run this after `/amarcord` extracts a skill and you want to share it.
+Run this when you want to share a skill with the team.
+The skill can come from anywhere — amarcord extraction, written by hand, or AI-generated.
+
+Trigger phrases: "sync this skill", "share this to the team", "open a PR for this skill"
 
 ### Step 1 — Check configuration
 
